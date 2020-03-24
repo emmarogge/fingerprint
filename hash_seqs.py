@@ -17,6 +17,10 @@ def read_sequence(file):
         # print("Sequence: {}".format(seq_record.seq))
         return seq_record.seq
 
+
+def write_sequence(seq, filename):
+    SeqIO.write(seq, filename, "fasta")
+
 '''
 Rotates the fingerprint signature by 1 hash each time.
 '''
@@ -24,7 +28,12 @@ def rotate_fingerprint(fp):
     return fp[1:] + [fp[0]]
 
 
+'''
+Get the rotated sequence corresponding to the given rotated fingerprint.
+'''
 def get_rotation_by_index(ix, seq):
+    print("prefix to append: {}".format(seq[:ix]))
+    print("suffix: {}".format(seq[ix:]))
     rot_seq = seq[ix:] + seq[:ix]
     # print("Rotated Seq: {}".format(rot_seq))
     return rot_seq
@@ -34,12 +43,14 @@ def get_rotation_by_index(ix, seq):
 Returns the Levenshtein edit distance between two sequences of hashes.
 '''
 def get_fingerprint_dist(lla, llb):
+    print(" ============ROTATING FINGERPRINT============")
     a_hashes = [item[0] for item in lla]
     b_hashes = [item[0] for item in llb]
-    # print("A (length {}):\n {}\n  B (length {}):\n {}".format(len(a_hashes), a_hashes, len(b_hashes), b_hashes))
-    # print("Difference in Length of Fingerprints: {}".format(len(a_hashes) - len(b_hashes)))
+    # print("A: {}\nB:{}".format(a_hashes, b_hashes))
+    print("Difference in Length of Fingerprints: {}".format(len(a_hashes) - len(b_hashes)))
     dist = textdistance.levenshtein.distance(a_hashes, b_hashes)
-    # print("Start Index in Sequence B: {}".format(llb[0]))
+    print("Start Index in Sequence B: {}".format(llb[0]))
+    print("Edit Distance of Fingerprints: {}".format(dist))
     return (dist, llb[0][1])
 
 '''
@@ -75,11 +86,11 @@ if __name__ == '__main__':
 
     print("Actual Lev Edit Distance Between Sequences: {}".format(baseline_lev_dist))
 
-    afp = Fingerprint(k=15, window_len=100, base=7, modulo=101)
+    afp = Fingerprint(k=5, window_len=5, base=7, modulo=101)
     a_mins = afp.generate(str(seq_a))
 
 
-    bfp = Fingerprint(k=15, window_len=100, base=7, modulo=101)
+    bfp = Fingerprint(k=5, window_len=5, base=7, modulo=101)
     b_mins = bfp.generate(str(seq_b))
 
     a_fp_len = len(a_mins)
@@ -91,14 +102,18 @@ if __name__ == '__main__':
     # print("B Fingerprint: {}".format(b_mins))
 
     md = get_min_dist_rotation(a_mins, b_mins)
-
+    print("===========Best Rotation of Fingerprint===========")
     print("ROTATION {} with MIN DISTANCE {}; INDEX {}".format(md[0], md[1], md[2]))
 
     rotation_split_point = md[2]
 
     rotated_b_seq = get_rotation_by_index(rotation_split_point, seq_b)
-    print("Seq A: {}".format(seq_a[0:100]))
-    print("Rotated Seq: {}".format(rotated_b_seq[0:100]))
+    print("Seq A: {}".format(seq_a))
+    print("Seq B: {}".format(seq_b))
+    # print("Rot B: {}".format(rotated_b_seq))
+    # print("Seq A: {}".format(seq_a))
+    # for i in range(len(seq_a)):
+        # print("{} {} {}".format())
 
     adj_dist = textdistance.levenshtein.distance(seq_a, rotated_b_seq)
     print("Adjusted Lev Distance: {}".format(adj_dist))

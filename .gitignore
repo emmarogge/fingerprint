@@ -2,3 +2,5 @@
 *.DS_Store
 dist
 build
+*.fas
+*.fasta
