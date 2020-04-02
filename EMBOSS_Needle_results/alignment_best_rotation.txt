@@ -1,0 +1,76 @@
+########################################
+# Program: needle
+# Rundate: Sat 28 Mar 2020 20:33:47
+# Commandline: needle
+#    -auto
+#    -stdout
+#    -asequence emboss_needle-I20200328-203343-0831-53858867-p2m.asequence
+#    -bsequence emboss_needle-I20200328-203343-0831-53858867-p2m.bsequence
+#    -gapopen 10.0
+#    -gapextend 0.5
+#    -endopen 10.0
+#    -endextend 0.5
+#    -aformat3 pair
+#    -sprotein1
+#    -sprotein2
+# Align_format: pair
+# Report_file: stdout
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: NC_004359.1
+# 2: NC_001464.1
+# Matrix: EBLOSUM62
+# Gap_penalty: 10.0
+# Extend_penalty: 0.5
+#
+# Length: 418
+# Identity:     213/418 (51.0%)
+# Similarity:   213/418 (51.0%)
+# Gaps:          99/418 (23.7%)
+# Score: 1051.0
+# 
+#
+#=======================================
+
+NC_004359.1        1 CGGATCACTTTCCTGTGGTTCCTGTGGT-TACACCTCGGAAGGCCGCCGC     49
+                            |||||.||.|||||||||||| ..|||||     |.|| |.||
+NC_001464.1        1 -------CTTTCTTGAGGTTCCTGTGGTGCTCACCT-----GACC-CTGC     37
+
+NC_004359.1       50 GGACCTGCAAAGAAGAAGATAGGGGCAGAGGGGGAGTGAGCCTCGTCGTC     99
+                     .|.|..|.||||||.||   ||.|||.|.||||||...||.| |.||   
+NC_001464.1       38 AGGCAGGAAAAGAAAAA---AGAGGCGGCGGGGGAAGAAGTC-CTTC---     80
+
+NC_004359.1      100 GACGAAGGGGTGCACTCCAAAGCTCCGAACTGG-------CGTCGTC---    139
+                          ||||.|   |.||...|...|   ||||       ||..|||   
+NC_001464.1       81 -----AGGGAT---CCCCGGGGAAAC---CTGGAGGAAGTCGAGGTCGGG    119
+
+NC_004359.1      140 -----CGGCTCTCCTCGG-AGCCTCGCTGCTCTGG------GCGGAAGA-    176
+                          |.||| .|.|||| .|||.||...|.||||      |||||..| 
+NC_001464.1      120 GGGGACAGCT-GCTTCGGTCGCCGCGGATCACTGGCGTCCAGCGGAGAAA    168
+
+NC_004359.1      177 ---------GTCTTCTGACTTTT----CTAG--CCTATTCAGCATTGCGC    211
+                              ||||.||..||||.    ||.|  ||...||.|.....|||
+NC_001464.1      169 CAGGAGCTCGTCTCCTTCCTTTCGCTGCTGGCTCCACATCCGATCGTCGC    218
+
+NC_004359.1      212 TCTTGAGGCCCGGCGAAACG--CGGTTCGTCTGCTGAGGATGCCTCCGCT    259
+                     |...|.|.|.||.|....||  |||..|.||| ||..||||.|..|| | 
+NC_001464.1      219 TGAAGCGCCTCGCCCCCTCGCCCGGAGCTTCT-CTCTGGATACTACC-C-    265
+
+NC_004359.1      260 AGTCGAGCGGACTTGGTCTCTTCCGCCCAAAGCCCTTTTTCTTTCAACTG    309
+                     .||.||....|||  |...||||..|||.||.||..|||||||..|.||.
+NC_001464.1      266 GGTGGAAACAACT--GAAGCTTCAACCCCAAACCGCTTTTCTTATATCTT    313
+
+NC_004359.1      310 AGCTTGTTCCAACGCGCCCC--GCGA--GTGCAATCCC-CGGAACCCCTG    354
+                     ..||         ||.|.||  ||||  |||.||.||| ||||||||..|
+NC_001464.1      314 CACT---------GCTCTCCGGGCGAGGGTGAAAGCCCTCGGAACCCTAG    354
+
+NC_004359.1      355 CAAAGAGGTCCT------    366
+                      |..|.|..|||      
+NC_001464.1      355 -ATTGGGTCCCTCGGGAT    371
+
+
+#---------------------------------------
+#---------------------------------------
